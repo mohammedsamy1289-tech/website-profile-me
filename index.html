@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Ghita | Full Stack Developer</title>
+<meta name="description" content="Ahmed Ghita — مطوّر Full Stack. بنيت متجر Ghita Store الإلكتروني بمساعد ذكي وباك اند كامل.">
+<meta property="og:title" content="Ahmed Ghita | Full Stack Developer">
+<meta property="og:description" content="مواقع وأنظمة ويب متكاملة: واجهة، سيرفر، قاعدة بيانات، وذكاء اصطناعي.">
+<link rel="icon" type="image/jpeg" href="asdd.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE3; --paper-2:#EAE3D3; --ink:#15130F; --ink-2:#4A453B;
+    --tomato:#FF5A36; --forest:#0F3D2E; --forest-2:#16553F; --lime:#D7F36B;
+    --line:rgba(21,19,15,.14);
+    --r:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .05 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:100}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate}
+  h1,h2,h3{font-family:'Changa','IBM Plex Sans Arabic',sans-serif;line-height:1.15;letter-spacing:-.01em}
+  :focus-visible{outline:3px solid var(--tomato);outline-offset:3px;border-radius:6px}
+
+  /* ---------- Top bar ---------- */
+  .bar{position:sticky;top:0;z-index:50;background:rgba(243,238,227,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Changa';font-weight:800;font-size:1.25rem}
+  .brand i{font-style:normal;width:38px;height:38px;border-radius:11px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-size:.95rem;letter-spacing:.02em;transform:rotate(-6deg)}
+  nav ul{display:flex;gap:6px;list-style:none}
+  nav a{padding:8px 14px;border-radius:999px;font-weight:500;font-size:.95rem;color:var(--ink-2);transition:.2s}
+  nav a:hover{background:var(--paper-2);color:var(--ink)}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.95rem;border:2px solid var(--ink);transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;background:transparent;font-family:inherit;color:var(--ink)}
+  .pill:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+  .pill.solid{background:var(--ink);color:var(--paper)}
+  .pill.solid:hover{box-shadow:0 6px 0 var(--tomato)}
+  .pill.tomato{background:var(--tomato);border-color:var(--tomato);color:#fff}
+  .pill.tomato:hover{box-shadow:0 6px 0 var(--ink)}
+  .menu-btn{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:72px 0 56px}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+  .status{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1.5px solid var(--ink);border-radius:999px;font-size:.88rem;font-weight:500;background:var(--lime)}
+  .status b{width:9px;height:9px;border-radius:50%;background:var(--forest);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,61,46,.5)}70%{box-shadow:0 0 0 9px rgba(15,61,46,0)}100%{box-shadow:0 0 0 0 rgba(15,61,46,0)}}
+  h1{font-size:clamp(2.6rem,6.2vw,4.9rem);font-weight:800;margin:22px 0 22px}
+  h1 em{font-style:normal;color:var(--tomato);position:relative;white-space:nowrap}
+  h1 em::after{content:"";position:absolute;inset-inline:0;bottom:.04em;height:.14em;background:var(--ink);border-radius:4px;transform:rotate(-1.2deg)}
+  .lead{font-size:1.18rem;color:var(--ink-2);max-width:560px;margin-bottom:32px}
+  .cta{display:flex;flex-wrap:wrap;gap:14px}
+
+  .term{background:var(--ink);color:#E9E4D6;border-radius:var(--r);padding:0;box-shadow:10px 10px 0 var(--tomato);transform:rotate(1.6deg);transition:transform .4s}
+  .term:hover{transform:rotate(0)}
+  .term-top{display:flex;gap:7px;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .term-top span{width:11px;height:11px;border-radius:50%;background:#555}
+  .term-top span:first-child{background:var(--tomato)} .term-top span:nth-child(2){background:#F5C451} .term-top span:nth-child(3){background:#6BD38A}
+  .term-top small{margin-inline-start:auto;color:#8f8a7c;font-size:.75rem}
+  .term pre{padding:22px 22px 26px;font-size:.86rem;line-height:2;white-space:pre-wrap;direction:ltr;text-align:left}
+  .term .k{color:var(--lime)} .term .d{color:#8f8a7c} .term .t{color:#FF9A80}
+  .caret{display:inline-block;width:8px;height:1em;background:var(--lime);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* ---------- Marquee ---------- */
+  .marquee{border-block:2px solid var(--ink);background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;direction:ltr}
+  .track{display:inline-flex;gap:0;animation:slide 32s linear infinite;padding:14px 0}
+  .track span{font-family:'JetBrains Mono';font-size:1rem;padding:0 28px;display:inline-flex;align-items:center;gap:28px}
+  .track span::after{content:"✦";color:var(--tomato)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- Sections ---------- */
+  section{padding:96px 0}
+  .eyebrow{font-family:'JetBrains Mono';font-size:.82rem;color:var(--tomato);letter-spacing:.08em;direction:ltr;display:block;text-align:right;margin-bottom:10px}
+  h2{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800;margin-bottom:14px}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+  .sec-head p{max-width:420px;color:var(--ink-2)}
+
+  /* ---------- Projects ---------- */
+  .proj{border:2px solid var(--ink);border-radius:28px;overflow:hidden;background:#fff;margin-bottom:34px;display:grid;grid-template-columns:1fr 1fr;transition:transform .3s,box-shadow .3s}
+  .proj:hover{transform:translateY(-4px);box-shadow:0 12px 0 var(--ink)}
+  .proj.dark{background:var(--forest);color:#F3EEE3;border-color:var(--ink)}
+  .proj-body{padding:42px 40px;display:flex;flex-direction:column;gap:18px}
+  .proj-no{font-family:'JetBrains Mono';font-size:.85rem;opacity:.7;direction:ltr;text-align:right}
+  .proj h3{font-size:2.3rem;font-weight:800}
+  .proj p{opacity:.9}
+  .feat{list-style:none;display:grid;gap:9px}
+  .feat li{display:flex;gap:11px;align-items:flex-start;font-size:.97rem}
+  .feat li::before{content:"";flex:none;width:9px;height:9px;margin-top:11px;border-radius:2px;background:var(--lime);transform:rotate(45deg)}
+  .proj:not(.dark) .feat li::before{background:var(--tomato)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{font-family:'JetBrains Mono';font-size:.76rem;padding:5px 12px;border-radius:999px;border:1.5px solid currentColor;opacity:.85;direction:ltr}
+  .proj .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .proj.dark .pill{border-color:var(--lime);color:var(--lime)}
+  .proj.dark .pill.solid{background:var(--lime);color:var(--forest)}
+  .proj.dark .pill:hover{box-shadow:0 6px 0 var(--ink)}
+  .proj-vis{background:var(--paper-2);border-inline-start:2px solid var(--ink);display:grid;place-items:center;padding:34px;min-height:380px;position:relative;overflow:hidden}
+  .proj.dark .proj-vis{background:#0B2E22}
+  .proj-vis img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s}
+  .proj:hover .proj-vis img{transform:scale(1.04)}
+
+  /* store mock */
+  .mock{width:100%;max-width:370px;background:#0A0E1A;border-radius:18px;border:1.5px solid rgba(255,255,255,.18);padding:14px;color:#E7ECF3;box-shadow:0 22px 40px rgba(0,0,0,.35);transform:rotate(-2deg);transition:transform .4s}
+  .proj:hover .mock{transform:rotate(0)}
+  .mock-top{display:flex;align-items:center;gap:9px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:12px}
+  .mock-top i{font-style:normal;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#6C5CE7,#00D4B5);display:grid;place-items:center;font-weight:800;font-size:.75rem;font-family:'Changa'}
+  .mock-top b{font-family:'Changa';font-size:1rem}
+  .mock-top b span{color:#00D4B5}
+  .mock-search{margin-inline-start:auto;width:92px;height:22px;border-radius:99px;background:rgba(255,255,255,.08)}
+  .mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mock-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:13px;overflow:hidden}
+  .mock-img{height:82px;background:linear-gradient(135deg,#6C5CE7,#00D4B5);display:grid;place-items:center;font-size:2rem}
+  .mock-card:nth-child(2) .mock-img{background:linear-gradient(135deg,#FFB020,#FF6B6B)}
+  .mock-card div:last-child{padding:9px 10px;font-size:.78rem;line-height:1.5}
+  .mock-card strong{display:block;color:#00D4B5;font-size:.82rem}
+  .mock-chat{margin-top:12px;display:flex;gap:8px;align-items:flex-end}
+  .mock-chat span{background:linear-gradient(90deg,#6C5CE7,#00D4B5);padding:8px 12px;border-radius:14px 14px 14px 4px;font-size:.76rem;max-width:80%}
+  .mock-chat em{font-style:normal;margin-inline-start:auto;width:30px;height:30px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-size:.9rem}
+
+  /* ---------- About ---------- */
+  .about{background:var(--ink);color:var(--paper);border-radius:36px;margin:0 16px}
+  .about .eyebrow{color:var(--lime)}
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+  .about p.big{font-size:1.35rem;line-height:1.9;color:#E9E4D6}
+  .about p.big mark{background:var(--lime);color:var(--ink);padding:0 8px;border-radius:6px}
+  .steps{display:grid;gap:14px;counter-reset:s}
+  .step{counter-increment:s;border:1.5px solid rgba(255,255,255,.2);border-radius:18px;padding:20px 22px 20px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;transition:.25s}
+  .step:hover{background:rgba(255,255,255,.06);transform:translateX(-6px)}
+  .step::before{content:counter(s,decimal-leading-zero);font-family:'JetBrains Mono';color:var(--tomato);font-size:1.4rem;font-weight:500}
+  .step h3{font-size:1.2rem;margin-bottom:3px}
+  .step p{color:#B7B1A1;font-size:.95rem;line-height:1.7}
+
+  /* ---------- Skills ---------- */
+  .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .sk{border:2px solid var(--ink);border-radius:var(--r);padding:26px 22px;background:#fff;transition:.25s}
+  .sk:nth-child(2){background:var(--lime)} .sk:nth-child(3){background:var(--tomato);color:#fff} .sk:nth-child(4){background:var(--paper-2)}
+  .sk:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 0 var(--ink)}
+  .sk h3{font-size:1.3rem;margin-bottom:14px}
+  .sk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .sk li{font-family:'JetBrains Mono';font-size:.8rem;padding:5px 11px;border-radius:999px;border:1.5px solid currentColor;direction:ltr}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--tomato);color:#fff;border:2px solid var(--ink);border-radius:36px;padding:64px 48px;text-align:center;box-shadow:12px 12px 0 var(--ink);position:relative;overflow:hidden}
+  .contact h2{font-size:clamp(2.2rem,5.6vw,4.4rem);margin-bottom:12px}
+  .contact p{max-width:520px;margin:0 auto 32px;font-size:1.1rem;opacity:.95}
+  .links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+  .links .pill{background:var(--paper);border-color:var(--ink);color:var(--ink)}
+  .links .pill:hover{box-shadow:0 6px 0 var(--ink)}
+  .links svg{width:20px;height:20px;fill:currentColor}
+  .mail{margin-top:26px;font-size:.95rem;opacity:.95}
+
+  footer{padding:44px 0 56px;text-align:center;color:var(--ink-2);font-size:.9rem}
+
+  /* ---------- Reveal ---------- */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero .wrap,.about-grid{grid-template-columns:1fr}
+    .proj{grid-template-columns:1fr}
+    .proj-vis{border-inline-start:0;border-top:2px solid var(--ink);min-height:300px}
+    .skills{grid-template-columns:1fr 1fr}
+    .term{transform:none;box-shadow:7px 7px 0 var(--tomato)}
+  }
+  @media (max-width:720px){
+    .menu-btn{display:inline-flex}
+    nav{position:absolute;top:68px;inset-inline:0;background:var(--paper);border-bottom:1px solid var(--line);display:none;padding:12px 24px 18px}
+    nav.open{display:block}
+    nav ul{flex-direction:column}
+    .bar .pill.solid.hide-m{display:none}
+    section{padding:68px 0}
+    .proj-body{padding:30px 24px}
+    .skills{grid-template-columns:1fr}
+    .contact{padding:44px 22px;box-shadow:7px 7px 0 var(--ink)}
+    .about{margin:0 8px;border-radius:26px}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="#top" class="brand"><i>AG</i> Ahmed Ghita</a>
+    <nav id="nav" aria-label="القائمة الرئيسية">
+      <ul>
+        <li><a href="#projects">مشاريعي</a></li>
+        <li><a href="#about">عني</a></li>
+        <li><a href="#skills">مهاراتي</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="#contact" class="pill solid hide-m">نشتغل سوا؟</a>
+      <button class="pill menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status"><b></b> متاح لمشاريع جديدة</span>
+        <h1>بحوّل فكرتك لموقع<br>بيشتغل <em>بجد.</em></h1>
+        <p class="lead">أنا Ahmed Ghita، مطوّر Full Stack. بصمّم الواجهة، وببني السيرفر وقاعدة البيانات، وبربط الذكاء الاصطناعي والواتساب بالمنتج — من أول فكرة لحد ما يتنشر ويتباع.</p>
+        <div class="cta">
+          <a href="#projects" class="pill solid">شوف مشاريعي ↓</a>
+          <a href="https://wa.me/201063840895" target="_blank" rel="noopener" class="pill tomato">كلمني على واتساب</a>
+        </div>
+      </div>
+      <div class="term mono" aria-hidden="true">
+        <div class="term-top"><span></span><span></span><span></span><small>POST /api/orders</small></div>
+<pre><span class="d">// ghita-store / backend</span>
+<span class="k">✓</span> validate  <span class="d">name, phone, village</span>
+<span class="k">✓</span> stock     <span class="d">checked inside a transaction</span>
+<span class="k">✓</span> total     <span class="t">1049.97 EGP</span>  <span class="d">+ free delivery</span>
+<span class="k">✓</span> whatsapp  <span class="d">link ready to send</span>
+<span class="k">→</span> 201 Created <span class="caret"></span></pre>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>JavaScript</span><span>Node.js</span><span>Express</span><span>React</span><span>Laravel</span><span>SQLite</span><span>Tailwind CSS</span><span>JWT Auth</span><span>Gemini API</span><span>REST APIs</span>
+      <span>JavaScript</span><span>Node.js</span><span>Express</span><span>React</span><span>Laravel</span><span>SQLite</span><span>Tailwind CSS</span><span>JWT Auth</span><span>Gemini API</span><span>REST APIs</span>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">/ 01 — SELECTED WORK</span><h2>أهم المشاريع</h2></div>
+        <p>مشروع كامل اشتغلت عليه من الفكرة للتنفيذ: واجهة، سيرفر، وبيانات حقيقية.</p>
+      </div>
+
+      <!-- Ghita Store -->
+      <article class="proj dark rv">
+        <div class="proj-body">
+          <span class="proj-no">PROJECT 01 · E-COMMERCE</span>
+          <h3>Ghita Store</h3>
+          <p>متجر إلكتروني متكامل لقرية رملة الانجب والقرى المجاورة بمركز أشمون — العميل بيتصفح ويطلب في دقيقة، والطلب بيوصل لصاحب المتجر على واتساب جاهز بكل التفاصيل.</p>
+          <ul class="feat">
+            <li>بحث لحظي، سلة مشتريات، ومعاينة صور المنتج</li>
+            <li>مساعد ذكي بـ <bdi>Google Gemini</bdi> بيرد على العملاء ويحوّل للواتساب لما يلزم</li>
+            <li>باك اند بـ <bdi>Node.js + Express</bdi> — دخول الأدمن بـ <bdi>JWT</bdi>، وتحقق من الأسعار والمخزون، ورفع الصور</li>
+            <li>تسجيل دخول بحساب <bdi>Google</bdi> وحساب رسوم التوصيل تلقائيًا</li>
+          </ul>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>SQLite</span><span>Tailwind</span><span>Gemini API</span><span>WhatsApp</span></div>
+          <div class="actions">
+            <a class="pill solid" href="store.html" target="_blank" rel="noopener">افتح المتجر ↗</a>
+            <a class="pill" href="https://wa.me/201063840895?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%AA%D8%AC%D8%B1%D9%8B%D8%A7%20%D9%85%D8%AB%D9%84%20Ghita%20Store" target="_blank" rel="noopener">عاوز متجر زيه</a>
+          </div>
+        </div>
+        <div class="proj-vis" aria-hidden="true">
+          <div class="mock mono" style="direction:rtl">
+            <div class="mock-top"><i>G</i><b style="font-family:'Changa'">Ghita <span>Store</span></b><div class="mock-search"></div></div>
+            <div class="mock-grid" style="font-family:'IBM Plex Sans Arabic'">
+              <div class="mock-card"><div class="mock-img">🎧</div><div>سماعة هيدفون Q10i<strong>٣٤٩٫٩٩ ج.م</strong></div></div>
+              <div class="mock-card"><div class="mock-img">💾</div><div>رام Lenovo 2 جيجا DDR3<strong>٩٩٫٩٩ ج.م</strong></div></div>
+            </div>
+            <div class="mock-chat" style="font-family:'IBM Plex Sans Arabic'"><span>أهلاً بيك! اسألني عن أي منتج أو التوصيل 👋</span><em>💬</em></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="rv">
+          <span class="eyebrow">/ 02 — ABOUT</span>
+          <h2>عني</h2>
+          <p class="big">مبرمج محترف متخصص في بناء <mark>حلول ويب متكاملة</mark>. بحوّل الأفكار لتطبيقات حقيقية سريعة وآمنة وقابلة للتوسع — وبهتم بالتفاصيل اللي بتفرق: التحقق من البيانات، حماية الحسابات، وتجربة مستخدم بسيطة على الموبايل قبل الكمبيوتر.</p>
+        </div>
+        <div class="steps rv">
+          <div class="step"><div><h3>أفهم احتياجك</h3><p>بسمع الفكرة وبحدد المطلوب بالظبط قبل ما أكتب سطر كود.</p></div></div>
+          <div class="step"><div><h3>أبني وأختبر</h3><p>واجهة وسيرفر وقاعدة بيانات، مع اختبارات للمنطق الحساس زي الطلبات والمخزون.</p></div></div>
+          <div class="step"><div><h3>أنشر وأتابع</h3><p>بنشر المشروع وبفضل جنبك لحد ما يشتغل بثبات.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">/ 03 — STACK</span><h2>مهاراتي</h2></div>
+        <p>الأدوات اللي بشتغل بيها يوميًا، من الواجهة للسيرفر.</p>
+      </div>
+      <div class="skills rv">
+        <div class="sk"><h3>الواجهة</h3><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Tailwind</li></ul></div>
+        <div class="sk"><h3>السيرفر</h3><ul><li>Node.js</li><li>Express</li><li>Laravel</li><li>REST APIs</li><li>JWT</li></ul></div>
+        <div class="sk"><h3>البيانات</h3><ul><li>SQLite</li><li>SQL</li><li>Transactions</li></ul></div>
+        <div class="sk"><h3>تكاملات</h3><ul><li>Gemini API</li><li>WhatsApp</li><li>Google Sign-In</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact rv">
+        <h2>عندك مشروع؟<br>خلينا ننفذه سوا.</h2>
+        <p>احكيلي عن مشروعك، وهرجعلك بخطة واضحة وتقدير للوقت والتكلفة.</p>
+        <div class="links">
+          <a class="pill" href="https://wa.me/201063840895" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.6.3.1.2.1.8-.1 1.3z"/></svg>واتساب</a>
+          <a class="pill" href="https://t.me/Ahmed452010" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.1 2.8 11.4c-.8.3-.8.8-.1 1l4.8 1.5 1.9 5.7c.2.6.4.7.8.4l2.6-2.1 4.9 3.6c.9.5 1.5.2 1.8-.8l3.2-15.3c.3-1.2-.4-1.8-1.8-1.3zM8.7 13.4l9.8-6.1c.5-.3.9-.1.5.2l-8 7.2-.3 3.4-2-4.7z"/></svg>تيليجرام</a>
+          <a class="pill" href="mailto:khyaraman@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.3 7 4 8l8 5.4L20 8l-.3-1L12 12.2z"/></svg>جيميل</a>
+        </div>
+        <div class="mail mono">khyaraman@gmail.com</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Ahmed Ghita — جميع الحقوق محفوظة</div>
+</footer>
+
+<script>
+  // سنة الفوتر
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // قائمة الموبايل
+  const nav = document.getElementById('nav'), btn = document.getElementById('menuBtn');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+
+  // ظهور تدريجي عند التمرير
+  const io = 'IntersectionObserver' in window
+    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 })
+    : null;
+  document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('on'));
+
+</script>
+</body>
+</html>
